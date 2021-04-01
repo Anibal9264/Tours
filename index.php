@@ -8,7 +8,6 @@ header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
        }else{
         switch($_GET["p"]){
             //aqui se le dice que archivo ejecutar segun la peticion en el request
-            case'holaRoss':include_once 'Controller/holis.php';break;
-        }
-       
+            case'SearchTour':include_once 'Controller/Controller_Tour.php';break;
+        } 
  }
