@@ -2,6 +2,9 @@
 include 'Data/DaoTours.php';
 switch($_GET["p"]){
  case'SearchTour': SearchTour(); break;
+ case'ImgsTour': GetImgsTour(); break;
+ case'ImgPTour': GetImgPTour(); break;
+ case'StarPTour': GetStarPTour(); break;
 }
 
 function SearchTour(){
@@ -13,3 +16,20 @@ function SearchTour(){
 }
 
 
+function GetImgPTour(){
+ $id = $_GET["id"];
+ $data = GetImgP($id);
+ echo json_encode($data);
+}
+
+function GetImgsTour(){
+ $id = $_GET["id"];
+ $data = GetImgsFind($id);
+ echo json_encode($data);
+}
+
+function GetStarPTour(){
+ $id = $_GET["id"];
+ $data = GetStarTour($id);
+ echo json_encode($data);
+}
