@@ -11,7 +11,13 @@ function SearchTour(){
  $search = $_GET["search"];
  $date1 = $_GET["date1"];
  $date2 = $_GET["date2"];
- $data = GetToursFind($search,$date1,$date2);
+ if(!$search && !$date1 && !$date2 ){
+    $data = GetToursWeek(); 
+ }else if(!$date1 || !$date2){
+    $data = GetToursOnlySearch($search); 
+ }else{
+    $data = GetToursFind($search,$date1,$date2); 
+ }
  echo json_encode($data);
 }
 
