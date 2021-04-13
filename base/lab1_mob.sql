@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `lab1_mob`.`Usuario` (
   `pais` VARCHAR(255) NULL,
   `fecha_nacimiento` DATE NULL,
   `contraseña` VARCHAR(255) NULL,
-  `foto` VARCHAR(255) NULL,
+  `foto` LONGBLOB NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `identificacion_UNIQUE` (`identificacion` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 -- Table `lab1_mob`.`Categoria`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Categoria` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
   `descripcion` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
@@ -188,7 +188,7 @@ ENGINE = InnoDB;
 -- Table `lab1_mob`.`OpcionCart`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`OpcionCart` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `Usuario` INT NOT NULL,
   `Tour` INT NOT NULL,
   `cantidad` INT NULL,

@@ -1,41 +1,64 @@
 <?php
 include 'Data/DaoTours.php';
-switch($_GET["p"]){
- case'SearchTour': SearchTour(); break;
- case'ImgsTour': GetImgsTour(); break;
- case'ImgPTour': GetImgPTour(); break;
- case'StarPTour': GetStarPTour(); break;
-}
 
-function SearchTour(){
- $search = $_GET["search"];
- $date1 = $_GET["date1"];
- $date2 = $_GET["date2"];
+
+
+class Controller_Tour{
+public $dao;
+function __construct() {
+    $this->dao = new DaoTours();
+}
+   
+function SearchTour($GET){
+ $search = $GET["search"];
+ $date1 = $GET["date1"];
+ $date2 = $GET["date2"];
  if(!$search && !$date1 && !$date2 ){
-    $data = GetToursWeek(); 
+  $data = $this->dao->GetToursWeek();
  }else if(!$date1 || !$date2){
-    $data = GetToursOnlySearch($search); 
+    $data = $this->dao->GetToursOnlySearch($search); 
  }else{
-    $data = GetToursFind($search,$date1,$date2); 
+    $data = $this->dao->GetToursFind($search,$date1,$date2); 
  }
  echo json_encode($data);
 }
 
 
-function GetImgPTour(){
- $id = $_GET["id"];
- $data = GetImgP($id);
+function GetImgPrincipal($GET){
+ $id = $GET["id"];
+ $data = $this->dao->GetImgPrincipal($id);
  echo json_encode($data);
 }
 
-function GetImgsTour(){
- $id = $_GET["id"];
- $data = GetImgsFind($id);
+function GetImgsTour($GET){
+ $id = $GET["id"];
+ $data = $this->dao->GetImgsFind($id);
  echo json_encode($data);
 }
 
-function GetStarPTour(){
- $id = $_GET["id"];
- $data = GetStarTour($id);
+function GetStarsTour($GET){
+ $id = $GET["id"];
+ $data = $this->dao->GetStarsTour($id);
  echo json_encode($data);
+}
+
+function GetTour($GET){
+ $id = $GET["id"];
+ $tour = $this->dao->GetTour($id);
+ $categoria = $this->dao->getCategoriaTour($tour->Categoria);
+ $imgs = $this->dao->GetImgsTour($id);
+ $incluye = $this->dao->GetIncluyeTour($id);
+ $noIncluye = $this->dao->GetNoIncluyeTour($id);
+ $reseñas = $this->dao->GetReseñasTour($id);
+ $data = array(
+     'tour' => $tour,
+     'categoria' => $categoria,
+     'imgs' => $imgs,
+     'incluye' => $incluye,
+     'noincuye' => $noIncluye,
+     'reseñas' => $reseñas  
+ );
+ echo json_encode($data);
+}
+
 }
