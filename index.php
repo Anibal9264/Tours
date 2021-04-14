@@ -13,7 +13,7 @@ $Tour = new Controller_Tour();
             case'SearchTour':$Tour->SearchTour($_GET);break;
             case'ImgsTour':$Tour->GetImgsTour($_GET);break;
             case'ImgPTour':$Tour->GetImgPrincipal($_GET);break;
-            case'StarsTour':$Tour->SearchTour($_GET);break;
+            case'StarsTour':$Tour->GetStarsTour($_GET);break;
             case'GetTour':$Tour->GetTour($_GET);break;
         } 
  }

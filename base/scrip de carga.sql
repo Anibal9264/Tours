@@ -37,7 +37,17 @@ INSERT INTO `resenia` (`id`, `calificacion`, `comentario`, `Usuario`, `Tour`) VA
 (4, 4, 'bueno', 1, 2),
 (5, 4, 'bueno bueno', 1, 2);
 
+INSERT INTO `opcion` (`id`, `nombre`, `descripcion`) VALUES (NULL, 'Desayuno', 'Desayuno de 7am a 10am');
+INSERT INTO `opcion` (`id`, `nombre`, `descripcion`) VALUES (NULL, 'Almuerzo', 'Almuerzo de 11am a 1pm');
+INSERT INTO `opcion` (`id`, `nombre`, `descripcion`) VALUES (NULL, 'Cena', 'Cena de 6pm a 8pm');
+INSERT INTO `opcion` (`id`, `nombre`, `descripcion`) VALUES (NULL, 'Parqueo', 'Paqueo con seguridad');
 
+INSERT INTO `incluye` (`Tour_id`, `Opcion_id`) VALUES ('1', '2');
+INSERT INTO `incluye` (`Tour_id`, `Opcion_id`) VALUES ('1', '4');
+INSERT INTO `no_incluye` (`Tour_id`, `Opcion_id`) VALUES ('1', '1'), ('1', '3');
+
+INSERT INTO `incluye` (`Tour_id`, `Opcion_id`) VALUES ('2', '2'), ('2', '4'), ('2', '1');
+INSERT INTO `no_incluye` (`Tour_id`, `Opcion_id`) VALUES ('2', '3');
 
 
 
