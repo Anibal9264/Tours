@@ -26,5 +26,11 @@ class ControllerUser{
         $data = $this->dao->Registro($nombre, $apellidos, $id, $fechanac, $email, $password);
         echo json_encode($data);
     }
+    
+    function GetUser($GET){
+        $id = $GET["id"];
+        $data = $this->dao->GetUser($id);
+        echo json_encode($data);
+    }
 }
 

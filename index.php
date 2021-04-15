@@ -25,6 +25,8 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'Login':$User->Login($_GET);
                 break;
+            case'GetUser':$User->GetUser($_GET);
+                break;
         }
     }
     

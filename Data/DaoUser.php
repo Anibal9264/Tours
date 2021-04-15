@@ -22,5 +22,15 @@ class DaoUser {
         $this->base->query($sql);
         return $this->Login($email, $password); 
     }
+    
+    function GetUser($id){
+        $sql = "SELECT CONCAT(nombre,' ', apellidos) "
+                . "AS nombreC,foto,pais,identificacion,email,fecha_nacimiento "
+                . "FROM usuario WHERE id = $id;";
+        $sentence = $this->base->query($sql);  
+        $result = $sentence->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
+    
 }
 

@@ -89,7 +89,7 @@ return $resoult;
 function GetReseñasTour($id){
 $sql = "SELECT * from resenia WHERE Tour = $id" ;  
 $sentence = $this->base->query($sql); 
-$resoult = $sentence->fetch(PDO::FETCH_OBJ);
+$resoult = $sentence->fetchAll(PDO::FETCH_OBJ);
 return $resoult;
 }
 
