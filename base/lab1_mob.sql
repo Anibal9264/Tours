@@ -11,6 +11,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema lab1_mob
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `lab1_mob` ;
+
 CREATE SCHEMA IF NOT EXISTS `lab1_mob` ;
 USE `lab1_mob` ;
 

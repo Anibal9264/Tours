@@ -27,7 +27,7 @@ INSERT INTO `tour_datetime` (`id`, `fecha_hora`, `Tour_id`) VALUES
 (4, '2021-04-09 19:01:27', 2);
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `identificacion`, `email`, `pais`, `fecha_nacimiento`, `contraseña`, `foto`) VALUES
-(1, 'Anibal', 'Chaves Badilla', '604040087', 'Anibalchavesbadilla@hotmail.com', 'Costa Rica', '1992-09-15', '266203039', NULL);
+(1, 'Anibal', 'Chaves Badilla', '604040087', 'anibalchavesbadilla@hotmail.com', 'Costa Rica', '1992-09-15', 'anibal123', NULL);
 
 
 INSERT INTO `resenia` (`id`, `calificacion`, `comentario`, `Usuario`, `Tour`) VALUES
