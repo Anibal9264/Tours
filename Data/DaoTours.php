@@ -53,7 +53,7 @@ return $resoult;
 
 function GetStarTour($id){
 $sql = "SELECT COUNT(id) as cantidad,SUM(calificacion)as stars FROM resenia WHERE Tour = $id" ;  
-$sentence = $base_de_datos->query($sql); 
+$sentence = $this->base->query($sql); 
 $resoult = $sentence->fetch(PDO::FETCH_OBJ);
 return $resoult;
 }
@@ -75,14 +75,14 @@ return $resoult;
 function GetIncluyeTour($id){
 $sql = "SELECT * from opcion WHERE id in (SELECT Opcion_id FROM incluye WHERE tour_id = $id);" ;  
 $sentence = $this->base->query($sql); 
-$resoult = $sentence->fetch(PDO::FETCH_OBJ);
+$resoult = $sentence->fetchAll(PDO::FETCH_OBJ);
 return $resoult;
 }
 
 function GetNoIncluyeTour($id){
 $sql = "SELECT * from opcion WHERE id in (SELECT Opcion_id FROM no_incluye WHERE tour_id = $id);" ;  
 $sentence = $this->base->query($sql); 
-$resoult = $sentence->fetch(PDO::FETCH_OBJ);
+$resoult = $sentence->fetchAll(PDO::FETCH_OBJ);
 return $resoult;
 }
 

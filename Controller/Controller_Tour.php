@@ -38,7 +38,7 @@ function GetImgsTour($GET){
 
 function GetStarsTour($GET){
  $id = $GET["id"];
- $data = $this->dao->GetStarsTour($id);
+ $data = $this->dao->GetStarTour($id);
  echo json_encode($data);
 }
 
@@ -50,13 +50,15 @@ function GetTour($GET){
  $incluye = $this->dao->GetIncluyeTour($id);
  $noIncluye = $this->dao->GetNoIncluyeTour($id);
  $reseñas = $this->dao->GetReseñasTour($id);
+ $stars = $this->dao->GetStarTour($id);
  $data = array(
      'tour' => $tour,
      'categoria' => $categoria,
      'imgs' => $imgs,
      'incluye' => $incluye,
-     'noincuye' => $noIncluye,
-     'reseñas' => $reseñas  
+     'noincluye' => $noIncluye,
+     'reseñas' => $reseñas,
+     'stars' => $stars
  );
  echo json_encode($data);
 }
