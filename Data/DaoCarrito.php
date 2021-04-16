@@ -33,7 +33,7 @@ class DaoCarrito {
     }
     
     function Limpiar($usuario){
-        $sql = "DELETE FROM opcioncart WHERE Usuario ='$usuario'";
+        $sql = "DELETE FROM opcioncart WHERE Usuario ='$usuario' and reservado = '0'";
         if ($this->base->query($sql) == true){
             return array("resp" => "1");
         }else{
