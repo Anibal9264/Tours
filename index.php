@@ -31,6 +31,8 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'opcionCart':$Carrito->allOpctionCart($_GET);
                 break;
+            case'isFavorite':$Tour->isFavorite($_GET);
+                break;
         }
     }
     

@@ -93,4 +93,11 @@ $resoult = $sentence->fetchAll(PDO::FETCH_OBJ);
 return $resoult;
 }
 
+function isFavorite($tour,$user){
+$sql = "SELECT * from TourFavorito WHERE Tour_id = '$tour' and Usuario_id = '$user'" ;  
+$sentence = $this->base->query($sql); 
+$resoult = $sentence->fetch(PDO::FETCH_OBJ);
+return $resoult;
+}
+
 }
