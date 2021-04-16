@@ -10,9 +10,9 @@ function __construct() {
 }
    
 function SearchTour($GET){
- $search = $GET["search"];
- $date1 = $GET["date1"];
- $date2 = $GET["date2"];
+ $search = $GET["search"]?:null;
+ $date1 = $GET["date1"]?:null;
+ $date2 = $GET["date2"]?:null;
  if(!$search && !$date1 && !$date2 ){
   $data = $this->dao->GetToursWeek();
  }else if(!$date1 || !$date2){
@@ -62,5 +62,13 @@ function GetTour($GET){
  );
  echo json_encode($data);
 }
+
+function isFavorite($GET){
+ $tour= $GET["tour"];
+ $user= $GET["user"];
+ $data = $this->dao->isFavorite($tour,$user);
+ echo json_encode($data);
+}
+
 
 }
