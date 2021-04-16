@@ -1,5 +1,4 @@
 <?php
-
 include 'Data/DaoUser.php';
 
 class ControllerUser{

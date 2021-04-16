@@ -5,8 +5,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 include_once 'Controller/Controller_Tour.php';
 include_once 'Controller/ControllerUser.php';
+include_once 'Controller/ControllerCarrito.php';
 $Tour = new Controller_Tour();
 $User = new ControllerUser();
+$Carrito = new ControllerCarrito();
 if (!isset($_REQUEST["p"])) {
     echo "No encontrado";
 } else {
@@ -27,12 +29,16 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'GetUser':$User->GetUser($_GET);
                 break;
+            case'opcionCart':$Carrito->allOpctionCart($_GET);
+                break;
         }
     }
     
     if (isset($_POST["p"])) {
         switch ($_POST["p"]) {
             case'Registro':$User->Registro($_POST);
+                break;
+            case'addCarrito':$Carrito->addCarrito($_POST);
                 break;
         }
     }
