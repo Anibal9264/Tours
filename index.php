@@ -31,6 +31,8 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'opcionCart':$Carrito->allOpctionCart($_GET);
                 break;
+            case'opcionRes':$Carrito->allOpctionRes($_GET);
+                break;
             case'isFavorite':$Tour->isFavorite($_GET);
                 break;
         }
@@ -42,8 +44,13 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'addCarrito':$Carrito->addCarrito($_POST);
                 break;
+            case'Limpiar':$Carrito->limpiar($_POST);
+                break;
+            case'Reservar':$Carrito->reservar($_POST);
+                break;
         }
     }
+
 }
 
 

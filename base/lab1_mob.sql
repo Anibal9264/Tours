@@ -7,18 +7,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema lab1_mob
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `lab1_mob` ;
 
 -- -----------------------------------------------------
 -- Schema lab1_mob
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `lab1_mob` ;
-
 CREATE SCHEMA IF NOT EXISTS `lab1_mob` ;
 USE `lab1_mob` ;
 
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Usuario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Usuario` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
@@ -38,6 +39,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Categoria`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Categoria` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Categoria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
@@ -50,6 +53,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Tour`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Tour` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Tour` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
@@ -71,6 +76,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Tour_datetime`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Tour_datetime` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Tour_datetime` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `fecha_hora` DATETIME NULL,
@@ -88,6 +95,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Opcion`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Opcion` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Opcion` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
@@ -100,6 +109,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Resenia`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Resenia` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Resenia` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `calificacion` INT(1) NULL,
@@ -125,6 +136,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Galeria`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Galeria` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Galeria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `img` LONGBLOB NOT NULL,
@@ -143,6 +156,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`TourFavorito`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`TourFavorito` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`TourFavorito` (
   `Usuario_id` INT NOT NULL,
   `Tour_id` INT NOT NULL,
@@ -163,37 +178,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lab1_mob`.`Reservacion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lab1_mob`.`Reservacion` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `Usuario_id` INT NOT NULL,
-  `Tour_id` INT NOT NULL,
-  `cantidad` INT NULL,
-  INDEX `fk_Usuario_has_Tour_Tour2_idx` (`Tour_id` ASC) ,
-  INDEX `fk_Usuario_has_Tour_Usuario2_idx` (`Usuario_id` ASC) ,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_Usuario_has_Tour_Usuario2`
-    FOREIGN KEY (`Usuario_id`)
-    REFERENCES `lab1_mob`.`Usuario` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_has_Tour_Tour2`
-    FOREIGN KEY (`Tour_id`)
-    REFERENCES `lab1_mob`.`Tour` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `lab1_mob`.`OpcionCart`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`OpcionCart` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`OpcionCart` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Usuario` INT NOT NULL,
   `Tour` INT NOT NULL,
   `cantidad` INT NULL,
+  `reservado` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_OpcionCart_Usuario1_idx` (`Usuario` ASC) ,
   INDEX `fk_OpcionCart_Tour1_idx` (`Tour` ASC) ,
@@ -213,6 +207,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`Incluye`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`Incluye` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Incluye` (
   `Tour_id` INT NOT NULL,
   `Opcion_id` INT NOT NULL,
@@ -235,6 +231,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `lab1_mob`.`No_incluye`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `lab1_mob`.`No_incluye` ;
+
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`No_incluye` (
   `Tour_id` INT NOT NULL,
   `Opcion_id` INT NOT NULL,

@@ -24,4 +24,22 @@ class ControllerCarrito {
         $data = $this->daocar->allOpcionCart($usuario);
         echo json_encode($data);
     }
+    
+    function allOpctionRes($GET){
+        $usuario = $GET["user"];
+        $data = $this->daocar->allOpcionRes($usuario);
+        echo json_encode($data);
+    }
+    
+    function limpiar($POST){
+        $user = $POST["user"];
+        $data = $this->daocar->limpiar($user);
+        echo json_encode($data);
+    }
+    
+    function reservar($POST){
+        $user = $POST["user"];
+        $data = $this->daocar->Reservar($user);
+        echo json_encode($data);
+    }
 }
