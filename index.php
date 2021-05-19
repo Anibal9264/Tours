@@ -35,13 +35,13 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'isFavorite':$Tour->isFavorite($_GET);
                 break;
+            case'Registro':$User->Registro($_POST);
+                break;
         }
     }
     
     if (isset($_POST["p"])) {
         switch ($_POST["p"]) {
-            case'Registro':$User->Registro($_POST);
-                break;
             case'addCarrito':$Carrito->addCarrito($_POST);
                 break;
             case'Limpiar':$Carrito->limpiar($_POST);
