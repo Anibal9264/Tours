@@ -22,7 +22,7 @@ class DaoUser {
         $sql = "INSERT INTO usuario (id, nombre, apellidos, identificacion, email, pais, fecha_nacimiento, contraseña) "
                 . "VALUES (null, '$nombre', '$apellidos', '$identificacion', '$email', 'CR', '$fechanac', '$password')";
         $this->base->query($sql);
-        return $this->Login($email, $password); 
+        return $this->Login($email, $password);
     }
     
     function GetUser($id){

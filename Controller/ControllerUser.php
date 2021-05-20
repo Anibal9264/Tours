@@ -15,13 +15,13 @@ class ControllerUser{
         echo json_encode($data);
     }
     
-    function Registro($POST){
-        $nombre = $POST["nombre"];
-        $apellidos = $POST["apellidos"];
-        $id = $POST["id"];
-        $fechanac = $POST["fechanac"];
-        $email = $POST["email"];
-        $password = $POST["password"];
+    function Registro($GET){
+        $nombre = $GET["nombre"];
+        $apellidos = $GET["apellidos"];
+        $id = $GET["id"];
+        $fechanac = $GET["fechanac"];
+        $email = $GET["email"];
+        $password = $GET["password"];
         $data = $this->dao->Registro($nombre, $apellidos, $id, $fechanac, $email, $password);
         echo json_encode($data);
     }

@@ -35,7 +35,7 @@ if (!isset($_REQUEST["p"])) {
                 break;
             case'isFavorite':$Tour->isFavorite($_GET);
                 break;
-            case'Registro':$User->Registro($_POST);
+            case'Registro':$User->Registro($_GET);
                 break;
         }
     }
