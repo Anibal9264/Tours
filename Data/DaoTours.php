@@ -7,18 +7,15 @@ function __construct() {
     $this->base = Conexion::conectar();
 }
     
-function GetToursWeek(){
-date_default_timezone_set('America/Costa_Rica');
-$today = date("Y-m-j");
-$sql = "SELECT * FROM tour WHERE id IN (SELECT tour_id FROM tour_datetime WHERE "
-        . "YEARWEEK(fecha_hora) = YEARWEEK('$today'))";  
+function GetTours(){
+$sql = "SELECT id FROM tour";  
 $sentence = $this->base->query($sql); 
 $resoult = $sentence->fetchAll(PDO::FETCH_OBJ);
 return $resoult;
 }
 
 function GetToursOnlySearch($search){
-$sql = "SELECT * FROM tour WHERE "
+$sql = "SELECT id FROM tour WHERE "
         . "nombre like '%$search%' "
         . "and descripcion like '%$search%';" ;  
 $sentence = $this->base->query($sql); 
@@ -27,7 +24,7 @@ return $resoult;
 }
 
 function GetToursFind($search,$date1,$date2){
-$sql = "SELECT * FROM tour WHERE id IN (SELECT tour_id FROM tour_datetime WHERE "
+$sql = "SELECT id FROM tour WHERE id IN (SELECT tour_id FROM tour_datetime WHERE "
         . "date(fecha_hora) BETWEEN '$date1' AND '$date2')"
         . "and nombre like '%$search%' "
         . "and descripcion like '%$search%';" ;  

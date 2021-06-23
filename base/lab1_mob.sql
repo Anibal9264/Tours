@@ -58,6 +58,7 @@ DROP TABLE IF EXISTS `lab1_mob`.`Tour` ;
 CREATE TABLE IF NOT EXISTS `lab1_mob`.`Tour` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
+  `lugar` VARCHAR(255) NULL,
   `descripcion` VARCHAR(255) NULL,
   `duracion` TIME NULL,
   `precio` DECIMAL(10,2) NULL,
